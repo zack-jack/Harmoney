@@ -42,27 +42,41 @@ var UIController = (function() {
  */
 
 var controller = (function(budgetCtrl, UICtrl) {
-  var DOM = UICtrl.getDOMStrings();
+  // Sets up event listeners
+  var setupEventListeners = function() {
+    // Get the DOMStrings object from UI Controller
+    var DOM = UICtrl.getDOMStrings();
+    // Click the check button event listener
+    document
+      .querySelector(DOM.inputButton)
+      .addEventListener("click", ctrlAddItem);
+
+    // Press return/enter key event listener
+    document.addEventListener("keypress", function(e) {
+      // Checks that enter key was pressed
+      if (e.keyCode === 13 || e.which === 13) {
+        ctrlAddItem();
+      }
+    });
+  };
+
+  // Adds budget item, updates totals
   var ctrlAddItem = function() {
     // 1. Get the field input data
     var input = UICtrl.getInput();
-    console.log(input);
     // 2. Add the item to the budget controller
     // 3. Add the item to the UI
     // 4. Calculate the budget
     // 5. Display the budget on UI
   };
 
-  /* Click the check button event listener */
-  document
-    .querySelector(DOM.inputButton)
-    .addEventListener("click", ctrlAddItem);
-
-  /* Press return/enter key event listener */
-  document.addEventListener("keypress", function(e) {
-    // Checks that enter key was pressed
-    if (e.keyCode === 13 || e.which === 13) {
-      ctrlAddItem();
+  // Intialization of the App
+  return {
+    init: function() {
+      setupEventListeners();
     }
-  });
+  };
 })(budgetController, UIController);
+
+// Starts the app
+controller.init();
