@@ -4,7 +4,30 @@
  */
 
 var budgetController = (function() {
-  // Some code here
+  // Income item constructor
+  var Income = function(id, description, value) {
+    this.id = id;
+    this.description = description;
+    this.value = value;
+  };
+
+  // Expense item constructor
+  var Expense = function(id, description, value) {
+    this.id = id;
+    this.description = description;
+    this.value = value;
+  };
+
+  var data = {
+    budgetItems: {
+      expenses: [],
+      income: []
+    },
+    totals: {
+      expenseTotal: 0,
+      incomeTotal: 0
+    }
+  };
 })();
 
 /**
