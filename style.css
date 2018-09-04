@@ -200,24 +200,26 @@ body {
 
 /***** LISTS *****/
 .container {
-  width: 85%;
+  width: 75%;
   margin: 25px auto;
   padding: 25px 0;
   background-color: rgba(247, 247, 247, 0.85);
 
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-  grid-column-gap: 60px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 75px;
 }
 
 .income {
-  width: 475px;
-  grid-column: 2 / 3;
+  width: auto;
+  grid-column: 1 / 2;
+  margin-left: 75px;
 }
 
 .expenses {
-  width: 475px;
-  grid-column: 3 / 4;
+  width: auto;
+  grid-column: 2 / 3;
+  margin-right: 75px;
 }
 
 h2 {
