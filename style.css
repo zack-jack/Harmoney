@@ -21,13 +21,6 @@ body {
   position: relative;
   height: 100vh;
   font-weight: 400;
-
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(back.jpg);
-  margin: 0 auto;
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
 }
 
 .right {
@@ -38,6 +31,15 @@ body {
 }
 .red-focus:focus {
   border: 1px solid #ff5049 !important;
+}
+
+.wrapper {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(back.jpg);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 
 /**********************************************
@@ -92,7 +94,8 @@ body {
 .budget__expenses--text {
   float: left;
   font-size: 13px;
-  color: #444;
+  font-weight: 400;
+  color: #fff;
   margin-top: 2px;
 }
 
@@ -204,7 +207,7 @@ body {
 
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-  grid-column-gap: 50px;
+  grid-column-gap: 60px;
 }
 
 .income {
@@ -224,11 +227,17 @@ h2 {
   margin-bottom: 15px;
 }
 
-.icome__title {
+.income__title {
   color: #28b9b5;
+  background-color: rgba(247, 247, 247, 0.9);
+  padding: 5px;
+  padding-left: 15px;
 }
 .expenses__title {
   color: #ff5049;
+  background-color: rgba(247, 247, 247, 0.9);
+  padding: 5px;
+  padding-left: 15px;
 }
 
 .item {
