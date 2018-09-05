@@ -34,11 +34,14 @@ body {
 }
 
 .wrapper {
-  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 40px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url(back.jpg);
   background-size: cover;
   background-position: top;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
@@ -58,6 +61,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
+  margin-top: 15px;
 }
 
 .budget__title {
@@ -124,10 +128,14 @@ body {
 *** BOTTOM PART
 **********************************************/
 
+.bottom {
+  background-color: #f5f5f5;
+}
+
 /***** FORM *****/
 .add {
   width: 45%;
-  margin: 0 auto;
+  margin: 25px auto;
   padding: 14px;
   border-bottom: 1px solid #e7e7e7;
   background-color: rgba(247, 247, 247, 0.85);
@@ -200,10 +208,10 @@ body {
 
 /***** LISTS *****/
 .container {
-  width: 75%;
-  margin: 25px auto;
+  width: 65%;
+  margin: 0 auto 25px auto;
   padding: 25px 0;
-  background-color: rgba(247, 247, 247, 0.85);
+  background-color: rgba(247, 247, 247, 0.9);
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -213,13 +221,11 @@ body {
 .income {
   width: auto;
   grid-column: 1 / 2;
-  margin-left: 75px;
 }
 
 .expenses {
   width: auto;
   grid-column: 2 / 3;
-  margin-right: 75px;
 }
 
 h2 {
@@ -231,15 +237,15 @@ h2 {
 
 .income__title {
   color: #28b9b5;
-  background-color: rgba(247, 247, 247, 0.9);
-  padding: 5px;
-  padding-left: 15px;
+  background-color: rgba(247, 247, 247);
+  padding: 10px;
+  text-align: center;
 }
 .expenses__title {
   color: #ff5049;
-  background-color: rgba(247, 247, 247, 0.9);
-  padding: 5px;
-  padding-left: 15px;
+  background-color: rgba(247, 247, 247);
+  padding: 10px;
+  text-align: center;
 }
 
 .item {
@@ -260,13 +266,13 @@ h2 {
 
 .item__value {
   float: left;
-  transition: transform 0.3s;
+  transition: transform 0.4s;
 }
 
 .item__percentage {
   float: left;
   margin-left: 20px;
-  transition: transform 0.3s;
+  transition: transform 0.4s;
   font-size: 11px;
   background-color: #ffdad9;
   padding: 3px;
