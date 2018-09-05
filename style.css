@@ -37,7 +37,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding-bottom: 40px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     url(back.jpg);
   background-size: cover;
   background-position: top;
@@ -61,7 +61,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  margin-top: 15px;
 }
 
 .budget__title {
@@ -72,8 +71,8 @@ body {
 }
 
 .budget__value {
-  font-weight: 300;
-  font-size: 46px;
+  font-weight: 100;
+  font-size: 52px;
   text-align: center;
   margin-bottom: 25px;
   letter-spacing: 2px;
@@ -130,12 +129,13 @@ body {
 
 .bottom {
   background-color: #f5f5f5;
+  height: 100vh;
 }
 
 /***** FORM *****/
 .add {
   width: 45%;
-  margin: 25px auto;
+  margin: 0 auto;
   padding: 14px;
   border-bottom: 1px solid #e7e7e7;
   background-color: rgba(247, 247, 247, 0.85);
@@ -155,6 +155,7 @@ body {
   background-color: #fff;
   margin-right: 10px;
   padding: 5px;
+  padding-left: 11px;
   font-weight: 300;
   transition: border 0.3s;
 }
@@ -168,7 +169,7 @@ body {
   font-size: 14px;
   padding: 12px 15px;
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: border 0.3s;
 }
 
@@ -240,12 +241,14 @@ h2 {
   background-color: rgba(247, 247, 247);
   padding: 10px;
   text-align: center;
+  border-bottom: 1px solid rgba(40, 185, 181, 0.2);
 }
 .expenses__title {
   color: #ff5049;
   background-color: rgba(247, 247, 247);
   padding: 10px;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 80, 73, 0.2);
 }
 
 .item {
@@ -254,10 +257,10 @@ h2 {
 }
 
 .item:first-child {
-  border-top: 1px solid #e7e7e7;
+  border-top: none;
 }
 .item:nth-child(even) {
-  background-color: #f7f7f7;
+  background-color: #f2f2f2;
 }
 
 .item__description {

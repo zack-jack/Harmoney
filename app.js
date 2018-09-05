@@ -102,6 +102,29 @@ var UIController = (function() {
       document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
     },
 
+    // Clears user input fields
+    clearFields: function() {
+      var fields, fieldsArr;
+
+      // Selects the description and value fields
+      fields = document.querySelectorAll(
+        DOMStrings.inputDescription + ", " + DOMStrings.inputValue
+      );
+
+      // The fields variable is a list that can't use slice method
+      // Using call on array prototype allows use of slice method on fields list
+      fieldsArr = Array.prototype.slice.call(fields);
+
+      // Loops over each item in the fieldsArr and sets the item value to an empty string
+      fieldsArr.forEach(function(current, index, array) {
+        current.value = "";
+      });
+
+      // Sets the focus back to the first field
+      fieldsArr[0].focus();
+    },
+
+    // Calls on the object that has strings of the DOM classes
     getDOMStrings: function() {
       return DOMStrings;
     }
@@ -145,8 +168,11 @@ var controller = (function(budgetCtrl, UICtrl) {
     // 3. Add the item to the UI
     UICtrl.addListItem(newItem, input.type);
 
-    // 4. Calculate the budget
-    // 5. Display the budget on UI
+    // 4. Clear all input fields
+    UICtrl.clearFields();
+
+    // 5. Calculate the budget
+    // 6. Display the budget on UI
   };
 
   // Intialization of the App
