@@ -160,7 +160,8 @@ var UIController = (function() {
     expensesLabel: ".budget__expenses--value",
     percentageLabel: ".budget__expenses--percentage",
     container: ".container",
-    expensesPercentageLabel: ".item__percentage"
+    expensesPercentageLabel: ".item__percentage",
+    dateLabel: ".budget__title--date"
   };
 
   var formatNumber = function(number, type) {
@@ -187,6 +188,12 @@ var UIController = (function() {
     }
 
     return (type === "exp" ? "- " : "+ ") + integer + "." + decimal;
+  };
+
+  var nodeListForEach = function(list, callback) {
+    for (var i = 0; i < list.length; i++) {
+      callback(list[i], i);
+    }
   };
 
   return {
@@ -285,12 +292,6 @@ var UIController = (function() {
         DOMStrings.expensesPercentageLabel
       );
 
-      var nodeListForEach = function(list, callback) {
-        for (var i = 0; i < list.length; i++) {
-          callback(list[i], i);
-        }
-      };
-
       nodeListForEach(fields, function(current, index) {
         if (percentages[index] > 0) {
           current.textContent = percentages[index] + " %";
@@ -298,6 +299,48 @@ var UIController = (function() {
           current.textContent = "-- %";
         }
       });
+    },
+
+    displayDate: function() {
+      var now, year, month, months;
+
+      now = new Date();
+
+      months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ];
+      month = now.getMonth();
+      year = now.getFullYear();
+
+      document.querySelector(DOMStrings.dateLabel).textContent =
+        months[month] + ", " + year;
+    },
+
+    changedType: function() {
+      var fields = document.querySelectorAll(
+        DOMStrings.inputType +
+          "," +
+          DOMStrings.inputDescription +
+          "," +
+          DOMStrings.inputValue
+      );
+
+      nodeListForEach(fields, function(current) {
+        current.classList.toggle("red-focus");
+      });
+
+      document.querySelector(DOMStrings.inputButton).classList.toggle("red");
     },
 
     // Calls on the object that has strings of the DOM classes
@@ -334,6 +377,11 @@ var controller = (function(budgetCtrl, UICtrl) {
     document
       .querySelector(DOM.container)
       .addEventListener("click", ctrlDeleteItem);
+
+    // Change event +/- select button
+    document
+      .querySelector(DOM.inputType)
+      .addEventListener("change", UICtrl.changedType);
   };
 
   // Updates budget total
@@ -419,6 +467,7 @@ var controller = (function(budgetCtrl, UICtrl) {
   return {
     init: function() {
       console.log("Application has started.");
+      UICtrl.displayDate();
       UICtrl.displayBudget({
         budget: 0,
         totalInc: 0,
